@@ -49,13 +49,15 @@ public class Demo {
 		
 		driver = new ChromeDriver();
 		
-//		String batchId   = System.getenv("APPLITOOLS_BATCH_ID");
+		String batchId  = System.getenv("APPLITOOLS_BATCH_ID");
 //		System.out.println(System.getenv("APPLITOOLS_BATCH_ID"));
 		String batchName = "VersionControlDemo";
 		BatchInfo batchInfo = new BatchInfo(batchName); 
 		
-//		batchInfo.setId(batchId);
+		batchInfo.setId(batchId);
 		eyes.setBatch(batchInfo);
+		eyes.addProperty("Commit Hash", System.getenv("APPLITOOLS_BATCH_ID"));
+		eyes.addProperty("Build Number",System.getenv("BUILD_NUMBER_DEMO"));
 	}
 	
 	
